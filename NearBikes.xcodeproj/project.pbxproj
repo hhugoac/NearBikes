@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		912C9DBE2CD2E8170004C6DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912C9DB52CD2E8170004C6DC /* Assets.xcassets */; };
+		912C9DC02CD2E8170004C6DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912C9DB82CD2E8170004C6DC /* LaunchScreen.storyboard */; };
+		912C9DC22CD2E8170004C6DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DB42CD2E8170004C6DC /* AppDelegate.swift */; };
+		912C9DC32CD2E8170004C6DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DBB2CD2E8170004C6DC /* SceneDelegate.swift */; };
+		912C9DC42CD2E8170004C6DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DBC2CD2E8170004C6DC /* ViewController.swift */; };
+		912C9DCC2CD2EE5B0004C6DC /* NBListBikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DCB2CD2EE5B0004C6DC /* NBListBikesViewController.swift */; };
+		912C9DCE2CD2EF710004C6DC /* NBTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DCD2CD2EF710004C6DC /* NBTabViewController.swift */; };
+		912C9DD02CD2F0070004C6DC /* NBSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DCF2CD2F0070004C6DC /* NBSettingsViewController.swift */; };
+		912C9DD22CD2F1730004C6DC /* NBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DD12CD2F1730004C6DC /* NBEndpoint.swift */; };
+		912C9DD42CD2F1850004C6DC /* NBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DD32CD2F1780004C6DC /* NBRequest.swift */; };
+		912C9DD62CD2F1A90004C6DC /* NBHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DD52CD2F1A90004C6DC /* NBHttpClient.swift */; };
+		912C9DD82CD2F5390004C6DC /* NBGetAllBikeStationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DD72CD2F5390004C6DC /* NBGetAllBikeStationsResponse.swift */; };
+		912C9DDC2CD2F66F0004C6DC /* NBLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DDB2CD2F66F0004C6DC /* NBLocation.swift */; };
+		912C9DDE2CD2F6F30004C6DC /* NBStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DDD2CD2F6F30004C6DC /* NBStation.swift */; };
+		912C9DE02CD2F8AD0004C6DC /* NBExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DDF2CD2F8AD0004C6DC /* NBExtra.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		912C9D9A2CD2E6850004C6DC /* NearBikes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearBikes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		912C9DB42CD2E8170004C6DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		912C9DB52CD2E8170004C6DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		912C9DB62CD2E8170004C6DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		912C9DB72CD2E8170004C6DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		912C9DBB2CD2E8170004C6DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		912C9DBC2CD2E8170004C6DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		912C9DCB2CD2EE5B0004C6DC /* NBListBikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBListBikesViewController.swift; sourceTree = "<group>"; };
+		912C9DCD2CD2EF710004C6DC /* NBTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBTabViewController.swift; sourceTree = "<group>"; };
+		912C9DCF2CD2F0070004C6DC /* NBSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBSettingsViewController.swift; sourceTree = "<group>"; };
+		912C9DD12CD2F1730004C6DC /* NBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBEndpoint.swift; sourceTree = "<group>"; };
+		912C9DD32CD2F1780004C6DC /* NBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBRequest.swift; sourceTree = "<group>"; };
+		912C9DD52CD2F1A90004C6DC /* NBHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBHttpClient.swift; sourceTree = "<group>"; };
+		912C9DD72CD2F5390004C6DC /* NBGetAllBikeStationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBGetAllBikeStationsResponse.swift; sourceTree = "<group>"; };
+		912C9DDB2CD2F66F0004C6DC /* NBLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBLocation.swift; sourceTree = "<group>"; };
+		912C9DDD2CD2F6F30004C6DC /* NBStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBStation.swift; sourceTree = "<group>"; };
+		912C9DDF2CD2F8AD0004C6DC /* NBExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBExtra.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		912C9D972CD2E6850004C6DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		912C9D912CD2E6850004C6DC = {
+			isa = PBXGroup;
+			children = (
+				912C9DBD2CD2E8170004C6DC /* NearBikes */,
+				912C9D9B2CD2E6850004C6DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		912C9D9B2CD2E6850004C6DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				912C9D9A2CD2E6850004C6DC /* NearBikes.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		912C9DB32CD2E8170004C6DC /* NBApi */ = {
+			isa = PBXGroup;
+			children = (
+				912C9DD12CD2F1730004C6DC /* NBEndpoint.swift */,
+				912C9DD52CD2F1A90004C6DC /* NBHttpClient.swift */,
+				912C9DD32CD2F1780004C6DC /* NBRequest.swift */,
+			);
+			path = NBApi;
+			sourceTree = "<group>";
+		};
+		912C9DBD2CD2E8170004C6DC /* NearBikes */ = {
+			isa = PBXGroup;
+			children = (
+				912C9DB62CD2E8170004C6DC /* Info.plist */,
+				912C9DC62CD2E8440004C6DC /* Controllers */,
+				912C9DC92CD2E8600004C6DC /* Model */,
+				912C9DB32CD2E8170004C6DC /* NBApi */,
+				912C9DCA2CD2ED130004C6DC /* Resources */,
+				912C9DC82CD2E8570004C6DC /* View */,
+				912C9DC72CD2E84E0004C6DC /* ViewModel */,
+			);
+			path = NearBikes;
+			sourceTree = "<group>";
+		};
+		912C9DC62CD2E8440004C6DC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				912C9DCB2CD2EE5B0004C6DC /* NBListBikesViewController.swift */,
+				912C9DCD2CD2EF710004C6DC /* NBTabViewController.swift */,
+				912C9DCF2CD2F0070004C6DC /* NBSettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		912C9DC72CD2E84E0004C6DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		912C9DC82CD2E8570004C6DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		912C9DC92CD2E8600004C6DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				912C9DD72CD2F5390004C6DC /* NBGetAllBikeStationsResponse.swift */,
+				912C9DDB2CD2F66F0004C6DC /* NBLocation.swift */,
+				912C9DDD2CD2F6F30004C6DC /* NBStation.swift */,
+				912C9DDF2CD2F8AD0004C6DC /* NBExtra.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		912C9DCA2CD2ED130004C6DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				912C9DB82CD2E8170004C6DC /* LaunchScreen.storyboard */,
+				912C9DB42CD2E8170004C6DC /* AppDelegate.swift */,
+				912C9DBB2CD2E8170004C6DC /* SceneDelegate.swift */,
+				912C9DBC2CD2E8170004C6DC /* ViewController.swift */,
+				912C9DB52CD2E8170004C6DC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		912C9D992CD2E6850004C6DC /* NearBikes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 912C9DAD2CD2E6870004C6DC /* Build configuration list for PBXNativeTarget "NearBikes" */;
+			buildPhases = (
+				912C9D962CD2E6850004C6DC /* Sources */,
+				912C9D972CD2E6850004C6DC /* Frameworks */,
+				912C9D982CD2E6850004C6DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NearBikes;
+			packageProductDependencies = (
+			);
+			productName = NearBikes;
+			productReference = 912C9D9A2CD2E6850004C6DC /* NearBikes.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		912C9D922CD2E6850004C6DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					912C9D992CD2E6850004C6DC = {
+						CreatedOnToolsVersion = 16.1;
+					};
+				};
+			};
+			buildConfigurationList = 912C9D952CD2E6850004C6DC /* Build configuration list for PBXProject "NearBikes" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 912C9D912CD2E6850004C6DC;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 912C9D9B2CD2E6850004C6DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				912C9D992CD2E6850004C6DC /* NearBikes */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		912C9D982CD2E6850004C6DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				912C9DBE2CD2E8170004C6DC /* Assets.xcassets in Resources */,
+				912C9DC02CD2E8170004C6DC /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		912C9D962CD2E6850004C6DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				912C9DDE2CD2F6F30004C6DC /* NBStation.swift in Sources */,
+				912C9DC22CD2E8170004C6DC /* AppDelegate.swift in Sources */,
+				912C9DD22CD2F1730004C6DC /* NBEndpoint.swift in Sources */,
+				912C9DD62CD2F1A90004C6DC /* NBHttpClient.swift in Sources */,
+				912C9DDC2CD2F66F0004C6DC /* NBLocation.swift in Sources */,
+				912C9DD02CD2F0070004C6DC /* NBSettingsViewController.swift in Sources */,
+				912C9DD42CD2F1850004C6DC /* NBRequest.swift in Sources */,
+				912C9DCC2CD2EE5B0004C6DC /* NBListBikesViewController.swift in Sources */,
+				912C9DE02CD2F8AD0004C6DC /* NBExtra.swift in Sources */,
+				912C9DCE2CD2EF710004C6DC /* NBTabViewController.swift in Sources */,
+				912C9DD82CD2F5390004C6DC /* NBGetAllBikeStationsResponse.swift in Sources */,
+				912C9DC32CD2E8170004C6DC /* SceneDelegate.swift in Sources */,
+				912C9DC42CD2E8170004C6DC /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		912C9DB82CD2E8170004C6DC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				912C9DB72CD2E8170004C6DC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		912C9DAE2CD2E6870004C6DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearBikes/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.h2osoft.NearBikes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		912C9DAF2CD2E6870004C6DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearBikes/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.h2osoft.NearBikes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		912C9DB02CD2E6870004C6DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		912C9DB12CD2E6870004C6DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		912C9D952CD2E6850004C6DC /* Build configuration list for PBXProject "NearBikes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				912C9DB02CD2E6870004C6DC /* Debug */,
+				912C9DB12CD2E6870004C6DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		912C9DAD2CD2E6870004C6DC /* Build configuration list for PBXNativeTarget "NearBikes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				912C9DAE2CD2E6870004C6DC /* Debug */,
+				912C9DAF2CD2E6870004C6DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 912C9D922CD2E6850004C6DC /* Project object */;
+}
