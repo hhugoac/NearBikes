@@ -9,7 +9,7 @@ import Foundation
 
 enum NBEndpoint: String, CaseIterable, Hashable {
     /// Endpoint to get bike list
-    case bike
+    case networks
     
     // TODO: - Add more endpoints here
 }

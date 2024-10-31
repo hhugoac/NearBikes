@@ -7,11 +7,13 @@
 
 import UIKit
 
-class NBListBikesViewController: UIViewController {
-
+class NBListStationsViewController: UIViewController {
+    let viewModel = NBListStationsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        viewModel.fetchListStations()
     }
 
 }

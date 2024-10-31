@@ -35,7 +35,7 @@ final class NBHttpClient {
             completion(.failure(NBHttpClientError.failedToCreateRequest))
             return
         }
-        
+        print(urlRequest)
         let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
             guard let data = data, error == nil else {
                 completion(.failure(NBHttpClientError.failedToGetData))
