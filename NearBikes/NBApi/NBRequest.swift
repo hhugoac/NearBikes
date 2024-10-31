@@ -10,7 +10,7 @@ import Foundation
 final class NBRequest {
     /// API Constants
     private struct Constants {
-        static let baseUrl = "http://api.citybik.es/v2/networks/mibici-guadalajara/stations"
+        static let baseUrl = "http://api.citybik.es/v2/networks/mibici-guadalajara"
     }
 
     /// Desired endpoint
