@@ -8,12 +8,23 @@
 import UIKit
 
 class NBListStationsViewController: UIViewController {
-    let viewModel = NBListStationsViewModel()
+    
+    let listStatitionsView = NBListStationsUIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewModel.fetchListStations()
+        //viewModel.fetchListStations()
+        view.addSubview(listStatitionsView)
+        addConstraints()
     }
 
+    private func addConstraints()  {
+        NSLayoutConstraint.activate([
+            listStatitionsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            listStatitionsView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            listStatitionsView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            listStatitionsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
 }
