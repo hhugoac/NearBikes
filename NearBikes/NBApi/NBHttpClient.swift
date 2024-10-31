@@ -11,7 +11,6 @@ import Foundation
 final class NBHttpClient {
     /// Shared singleton instance
     static let shared = NBHttpClient()
-
     
     ///Privatized constructor
     private init() {}
@@ -35,8 +34,8 @@ final class NBHttpClient {
             completion(.failure(NBHttpClientError.failedToCreateRequest))
             return
         }
-        print(urlRequest)
-        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
             guard let data = data, error == nil else {
                 completion(.failure(NBHttpClientError.failedToGetData))
                 return
@@ -44,7 +43,6 @@ final class NBHttpClient {
             
             do {
                 let result = try JSONDecoder().decode(type.self, from: data)
-                
                 completion(.success(result))
             } catch {
                 completion(.failure(error))

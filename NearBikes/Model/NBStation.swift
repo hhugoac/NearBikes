@@ -16,4 +16,11 @@ struct NBStation: Codable {
         let freeBikes: Int
         let emptySlots: Int
         let extra: NBExtra
+    
+    enum CodingKeys: String, CodingKey {
+            case id, name, latitude, longitude, timestamp
+            case freeBikes = "free_bikes"
+            case emptySlots = "empty_slots"
+            case extra
+        }
 }
