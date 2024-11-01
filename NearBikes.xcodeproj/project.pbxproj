@@ -23,6 +23,7 @@
 		912C9DDE2CD2F6F30004C6DC /* NBStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DDD2CD2F6F30004C6DC /* NBStation.swift */; };
 		912C9DE02CD2F8AD0004C6DC /* NBExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C9DDF2CD2F8AD0004C6DC /* NBExtra.swift */; };
 		9173E3CF2CD3F54D00824F86 /* NBStationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173E3CE2CD3F54D00824F86 /* NBStationCollectionViewCell.swift */; };
+		9173E3D12CD43F6500824F86 /* NBStationCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173E3D02CD43F6500824F86 /* NBStationCollectionViewCellViewModel.swift */; };
 		917B13582CD3DD7D00F90FA9 /* NBNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917B13572CD3DD7D00F90FA9 /* NBNetwork.swift */; };
 		BF8A697F2CD3477200D45FA9 /* NBListStationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A697E2CD3477200D45FA9 /* NBListStationsViewModel.swift */; };
 		BF8A69832CD347F700D45FA9 /* NBListStationsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A69822CD347F700D45FA9 /* NBListStationsUIView.swift */; };
@@ -47,6 +48,7 @@
 		912C9DDD2CD2F6F30004C6DC /* NBStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBStation.swift; sourceTree = "<group>"; };
 		912C9DDF2CD2F8AD0004C6DC /* NBExtra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBExtra.swift; sourceTree = "<group>"; };
 		9173E3CE2CD3F54D00824F86 /* NBStationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBStationCollectionViewCell.swift; sourceTree = "<group>"; };
+		9173E3D02CD43F6500824F86 /* NBStationCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBStationCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		917B13572CD3DD7D00F90FA9 /* NBNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBNetwork.swift; sourceTree = "<group>"; };
 		BF8A697E2CD3477200D45FA9 /* NBListStationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBListStationsViewModel.swift; sourceTree = "<group>"; };
 		BF8A69822CD347F700D45FA9 /* NBListStationsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBListStationsUIView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				BF8A697E2CD3477200D45FA9 /* NBListStationsViewModel.swift */,
+				9173E3D02CD43F6500824F86 /* NBStationCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				912C9DDE2CD2F6F30004C6DC /* NBStation.swift in Sources */,
 				912C9DC22CD2E8170004C6DC /* AppDelegate.swift in Sources */,
+				9173E3D12CD43F6500824F86 /* NBStationCollectionViewCellViewModel.swift in Sources */,
 				917B13582CD3DD7D00F90FA9 /* NBNetwork.swift in Sources */,
 				912C9DD22CD2F1730004C6DC /* NBEndpoint.swift in Sources */,
 				9173E3CF2CD3F54D00824F86 /* NBStationCollectionViewCell.swift in Sources */,

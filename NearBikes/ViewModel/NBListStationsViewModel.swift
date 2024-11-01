@@ -12,7 +12,20 @@ protocol NBListStationsViewModelProtocol: AnyObject {
 }
 
 final class NBListStationsViewModel: NSObject {
-    private var stations: [NBStation] = []
+    private var cellViewModels: [NBStationCollectionViewCellViewModel] = []
+    private var stations: [NBStation] = [] {
+        didSet {
+            for station in stations {
+                let viewModel = NBStationCollectionViewCellViewModel(
+                    stationName: station.name
+                )
+                if !cellViewModels.contains(viewModel) {
+                    cellViewModels.append(viewModel)
+                }
+            }
+        }
+    }
+    
     public weak var delegate: NBListStationsViewModelProtocol?
     
     func fetchListStations() {
@@ -46,6 +59,7 @@ extension NBListStationsViewModel: UICollectionViewDataSource, UICollectionViewD
         else {
             fatalError("Unsupported cell type")
         }
+        cell.configure(with: cellViewModels[indexPath.row])
         return cell
     }
     

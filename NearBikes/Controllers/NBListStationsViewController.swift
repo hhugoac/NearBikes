@@ -14,7 +14,6 @@ class NBListStationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        //viewModel.fetchListStations()
         view.addSubview(listStatitionsView)
         addConstraints()
     }

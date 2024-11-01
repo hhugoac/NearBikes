@@ -16,7 +16,6 @@ class NBListStationsUIView: UIView, NBListStationsViewModelProtocol {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemPink
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(
             NBStationCollectionViewCell.self,
@@ -48,6 +47,7 @@ class NBListStationsUIView: UIView, NBListStationsViewModelProtocol {
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView
         ])
     }
     
