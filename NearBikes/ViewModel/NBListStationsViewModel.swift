@@ -17,7 +17,9 @@ final class NBListStationsViewModel: NSObject {
         didSet {
             for station in stations {
                 let viewModel = NBStationCollectionViewCellViewModel(
-                    stationName: station.name
+                    stationName: station.name,
+                    longitude: station.longitude,
+                    latitude: station.latitude
                 )
                 if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)

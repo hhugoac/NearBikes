@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class NBStationCollectionViewCell: UICollectionViewCell {
     
@@ -13,23 +14,21 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     private let mapContainer: UIView = {
         let container = UIView(frame: .zero)
-        container.backgroundColor = .red
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }()
     
-    private let mapImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    private let mapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        return mapView
     }()
     
     private let infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
+        stackView.backgroundColor = .systemBackground
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -45,8 +44,11 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
-        addSubview(mapContainer)
+        contentView.addSubview(mapContainer)
+        contentView.addSubview(infoStackView)
+        infoStackView.addSubview(nameLabel)
+        
+        mapContainer.addSubview(mapView)
         addConstraints()
         setupLayer()
     }
@@ -60,7 +62,22 @@ class NBStationCollectionViewCell: UICollectionViewCell {
             mapContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
             mapContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             mapContainer.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            mapContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor)
+            mapContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+            
+            infoStackView.topAnchor.constraint(equalTo: mapContainer.bottomAnchor),
+            infoStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            infoStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            infoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            infoStackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+            
+            mapView.topAnchor.constraint(equalTo: mapContainer.topAnchor),
+            mapView.leftAnchor.constraint(equalTo: mapContainer.leftAnchor),
+            mapView.rightAnchor.constraint(equalTo: mapContainer.rightAnchor),
+            mapView.bottomAnchor.constraint(equalTo: mapContainer.bottomAnchor),
+            
+            nameLabel.topAnchor.constraint(equalTo: infoStackView.topAnchor, constant: 4),
+            nameLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
+            
         ])
     }
     
@@ -71,15 +88,23 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOpacity = 0.3
     }
     
+    private func configureMap(longitude: Double, latitude: Double) {
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        mapView.setRegion(region, animated: false)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+    }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
-        mapImage.image = nil
     }
     
     public func configure(with viewModel: NBStationCollectionViewCellViewModel) {
-            nameLabel.text = viewModel.stationName
-        mapImage.image = UIImage(named: "RectangleMap")
+        nameLabel.text = viewModel.stationName
+        configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
     }
 }
