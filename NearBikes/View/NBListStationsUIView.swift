@@ -26,6 +26,7 @@ class NBListStationsUIView: UIView, NBListStationsViewModelProtocol {
     }()
     
     let viewModel = NBListStationsViewModel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         viewModel.fetchListStations()

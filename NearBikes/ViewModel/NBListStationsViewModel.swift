@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 protocol NBListStationsViewModelProtocol: AnyObject {
     func loadStations()
@@ -19,16 +20,22 @@ final class NBListStationsViewModel: NSObject {
                 let viewModel = NBStationCollectionViewCellViewModel(
                     stationName: station.name,
                     longitude: station.longitude,
-                    latitude: station.latitude
+                    latitude: station.latitude,
+                    freeBikes: station.freeBikes,
+                    emptySlots: station.emptySlots,
+                    myLocation: self.myLocation
                 )
                 if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)
                 }
             }
+            cellViewModels = cellViewModels.sorted{ $0.distance < $1.distance}
         }
     }
     
     public weak var delegate: NBListStationsViewModelProtocol?
+    
+    let myLocation: MKMapPoint = MKMapPoint(CLLocationCoordinate2D(latitude: 20.659698, longitude: -103.349609))
     
     func fetchListStations() {
         let request = NBRequest(endpoint: .networks, pathComponents: ["mibici-guadalajara"])

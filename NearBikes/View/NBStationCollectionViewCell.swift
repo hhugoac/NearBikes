@@ -41,12 +41,62 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private let freeBikesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Bikes available: "
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let freeBikesImage: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let emptySlotsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Slots available: "
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let emptySlotsImage: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let distanceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var annotation :[MKPointAnnotation] = []
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(mapContainer)
         contentView.addSubview(infoStackView)
+        
         infoStackView.addSubview(nameLabel)
+        infoStackView.addSubview(freeBikesLabel)
+        infoStackView.addSubview(emptySlotsLabel)
+        infoStackView.addSubview(freeBikesImage)
+        infoStackView.addSubview(emptySlotsImage)
+        infoStackView.addSubview(distanceLabel)
         
         mapContainer.addSubview(mapView)
         addConstraints()
@@ -78,6 +128,20 @@ class NBStationCollectionViewCell: UICollectionViewCell {
             nameLabel.topAnchor.constraint(equalTo: infoStackView.topAnchor, constant: 4),
             nameLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
             
+            freeBikesLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
+            freeBikesLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
+           
+            freeBikesImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
+            freeBikesImage.leftAnchor.constraint(equalTo: freeBikesLabel.rightAnchor, constant: 4),
+            
+            emptySlotsLabel.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: 4),
+            emptySlotsLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
+            
+            emptySlotsImage.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: 4),
+            emptySlotsImage.leftAnchor.constraint(equalTo: emptySlotsLabel.rightAnchor, constant: 4),
+            
+            distanceLabel.centerYAnchor.constraint(equalTo: infoStackView.centerYAnchor),
+            distanceLabel.rightAnchor.constraint(equalTo: infoStackView.rightAnchor, constant: 4),
         ])
     }
     
@@ -95,16 +159,24 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
+        self.annotation.append(annotation)
         mapView.addAnnotation(annotation)
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
+        mapView.removeAnnotations(self.annotation)
+        emptySlotsImage.text = nil
+        freeBikesImage.text = nil
+        distanceLabel.text = nil
     }
     
     public func configure(with viewModel: NBStationCollectionViewCellViewModel) {
         nameLabel.text = viewModel.stationName
+        emptySlotsImage.text = "\(viewModel.emptySlots)"
+        freeBikesImage.text = "\(viewModel.freeBikes)"
+        distanceLabel.text = "\(viewModel.distance)"
         configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
     }
 }
