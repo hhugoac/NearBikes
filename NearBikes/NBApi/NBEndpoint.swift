@@ -11,5 +11,7 @@ enum NBEndpoint: String, CaseIterable, Hashable {
     /// Endpoint to get bike list
     case networks
     
-    // TODO: - Add more endpoints here
+    
+    ///Endpoints for places
+    case places
 }

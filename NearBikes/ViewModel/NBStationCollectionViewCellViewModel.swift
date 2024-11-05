@@ -40,4 +40,22 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
         let location = MKMapPoint(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         self.distance = Int(myLocation.distance(to: location).rounded()) 
     }
+    
+      func getImageFromLocations() {
+          let location = "\(latitude),\(longitude)"
+          let request = NBFSQRequest(
+            endpoint: .places,
+            pathComponents: ["search"],
+            queryParameter: [URLQueryItem(name: "ll", value: location)]
+          )
+        
+          NBFSQHttpClient.shared.execute(request, expecting: String.self) { [weak self] result in
+              switch result {
+              case .success(let result):
+                  print(result)
+              case .failure(let error):
+                  print(error)
+              }
+          }
+    }
 }
