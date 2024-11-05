@@ -141,7 +141,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
             emptySlotsImage.leftAnchor.constraint(equalTo: emptySlotsLabel.rightAnchor, constant: 4),
             
             distanceLabel.centerYAnchor.constraint(equalTo: infoStackView.centerYAnchor),
-            distanceLabel.rightAnchor.constraint(equalTo: infoStackView.rightAnchor, constant: 4),
+            distanceLabel.rightAnchor.constraint(equalTo: infoStackView.rightAnchor, constant: -4),
         ])
     }
     
@@ -176,7 +176,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.stationName
         emptySlotsImage.text = "\(viewModel.emptySlots)"
         freeBikesImage.text = "\(viewModel.freeBikes)"
-        distanceLabel.text = "\(viewModel.distance)"
+        distanceLabel.text = "\(viewModel.distance) m"
         configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
     }
 }

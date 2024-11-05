@@ -35,7 +35,7 @@ final class NBListStationsViewModel: NSObject {
     
     public weak var delegate: NBListStationsViewModelProtocol?
     
-    let myLocation: MKMapPoint = MKMapPoint(CLLocationCoordinate2D(latitude: 20.659698, longitude: -103.349609))
+    let myLocation: MKMapPoint = MKMapPoint(CLLocationCoordinate2D(latitude: 20.680551, longitude: -103.359311))
     
     func fetchListStations() {
         let request = NBRequest(endpoint: .networks, pathComponents: ["mibici-guadalajara"])

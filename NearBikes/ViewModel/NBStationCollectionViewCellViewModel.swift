@@ -15,7 +15,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
     public let latitude: Double
     public let freeBikes: Int
     public let emptySlots: Int
-    public let distance: Double
+    public let distance: Int
     
     
     static func == (lhs: NBStationCollectionViewCellViewModel, rhs: NBStationCollectionViewCellViewModel) -> Bool {
@@ -38,6 +38,6 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
         self.freeBikes = freeBikes
         self.emptySlots = emptySlots
         let location = MKMapPoint(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-        self.distance = myLocation.distance(to: location) as Double
+        self.distance = Int(myLocation.distance(to: location).rounded()) 
     }
 }
