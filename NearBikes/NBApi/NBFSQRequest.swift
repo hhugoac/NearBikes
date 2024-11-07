@@ -11,7 +11,7 @@ class NBFSQRequest {
     
 /// API Constants
 private struct Constants {
-    static let baseUrl = "https://api.foursquare.com/v3/"
+    static let baseUrl = "https://api.foursquare.com/v3"
 }
 
 /// Desired endpoint

@@ -38,7 +38,8 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
         self.freeBikes = freeBikes
         self.emptySlots = emptySlots
         let location = MKMapPoint(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-        self.distance = Int(myLocation.distance(to: location).rounded()) 
+        self.distance = Int(myLocation.distance(to: location).rounded())
+        getImageFromLocations() 
     }
     
       func getImageFromLocations() {
@@ -49,7 +50,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
             queryParameter: [URLQueryItem(name: "ll", value: location)]
           )
         
-          NBFSQHttpClient.shared.execute(request, expecting: String.self) { [weak self] result in
+          NBFSQHttpClient.shared.execute(request, expecting: NBFSQResponse.self) { [weak self] result in
               switch result {
               case .success(let result):
                   print(result)

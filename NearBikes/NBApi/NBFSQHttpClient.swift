@@ -41,6 +41,7 @@ final class NBFSQHttpClient {
             }
             
             do {
+                print(String(describing: data))
                 let result = try JSONDecoder().decode(type.self, from: data)
                 completion(.success(result))
             } catch {
@@ -57,6 +58,8 @@ final class NBFSQHttpClient {
         }
         var request = URLRequest(url: url)
         request.httpMethod = request.httpMethod
+        request.setValue("Authorization", forHTTPHeaderField: "fsq3YS1lINUyEL+lpNMogu81Gyt0sPOVNuPn+emCIwb9Zgs=")
+        request.setValue("accept", forHTTPHeaderField: "application/json")
         return request
     }
 }
