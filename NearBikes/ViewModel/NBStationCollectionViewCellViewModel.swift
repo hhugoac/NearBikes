@@ -16,6 +16,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
     public let freeBikes: Int
     public let emptySlots: Int
     public let distance: Int
+    public var placeImageURL: URL?
     
     
     static func == (lhs: NBStationCollectionViewCellViewModel, rhs: NBStationCollectionViewCellViewModel) -> Bool {
@@ -39,24 +40,27 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
         self.emptySlots = emptySlots
         let location = MKMapPoint(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         self.distance = Int(myLocation.distance(to: location).rounded())
-        getImageFromLocations() 
+        getUrlImage()
     }
     
-      func getImageFromLocations() {
-          let location = "\(latitude),\(longitude)"
-          let request = NBFSQRequest(
+    private func getUrlImage() {
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        let location = "\(self.latitude),\(self.longitude)"
+        let request = NBFSQRequest(
             endpoint: .places,
             pathComponents: ["search"],
-            queryParameter: [URLQueryItem(name: "ll", value: location)]
-          )
-        
-          NBFSQHttpClient.shared.execute(request, expecting: NBFSQResponse.self) { [weak self] result in
-              switch result {
-              case .success(let result):
-                  print(result)
-              case .failure(let error):
-                  print(error)
-              }
-          }
+            queryParameter: [URLQueryItem(name: "ll", value: location),
+                             URLQueryItem(name: "limit", value: "4")]
+        )
+    }
+    
+    func fetchImage(url: URL?,completion: @escaping (Result<Data, Error>)-> Void) {
+        guard let url = url else {
+            
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        NBFSQImageLoader.shared.downloadImage(url, completion: completion)
     }
 }

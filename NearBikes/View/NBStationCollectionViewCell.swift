@@ -18,10 +18,18 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         return container
     }()
     
-    private let mapView: MKMapView = {
-        let mapView = MKMapView()
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        return mapView
+    //private let mapView: MKMapView = {
+    //    let mapView = MKMapView()
+    //    mapView.translatesAutoresizingMaskIntoConstraints = false
+    //    return mapView
+    //}()
+    
+    private let imagePlaceView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     private let infoStackView: UIStackView = {
@@ -98,7 +106,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         infoStackView.addSubview(emptySlotsImage)
         infoStackView.addSubview(distanceLabel)
         
-        mapContainer.addSubview(mapView)
+        mapContainer.addSubview(imagePlaceView)
         addConstraints()
         setupLayer()
     }
@@ -120,10 +128,10 @@ class NBStationCollectionViewCell: UICollectionViewCell {
             infoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             infoStackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
             
-            mapView.topAnchor.constraint(equalTo: mapContainer.topAnchor),
-            mapView.leftAnchor.constraint(equalTo: mapContainer.leftAnchor),
-            mapView.rightAnchor.constraint(equalTo: mapContainer.rightAnchor),
-            mapView.bottomAnchor.constraint(equalTo: mapContainer.bottomAnchor),
+            imagePlaceView.topAnchor.constraint(equalTo: mapContainer.topAnchor),
+            imagePlaceView.leftAnchor.constraint(equalTo: mapContainer.leftAnchor),
+            imagePlaceView.rightAnchor.constraint(equalTo: mapContainer.rightAnchor),
+            imagePlaceView.bottomAnchor.constraint(equalTo: mapContainer.bottomAnchor),
             
             nameLabel.topAnchor.constraint(equalTo: infoStackView.topAnchor, constant: 4),
             nameLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
@@ -155,21 +163,22 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     private func configureMap(longitude: Double, latitude: Double) {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-        mapView.setRegion(region, animated: false)
+        //mapView.setRegion(region, animated: false)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         self.annotation.append(annotation)
-        mapView.addAnnotation(annotation)
+        //mapView.addAnnotation(annotation)
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
-        mapView.removeAnnotations(self.annotation)
+        //mapView.removeAnnotations(self.annotation)
         emptySlotsImage.text = nil
         freeBikesImage.text = nil
         distanceLabel.text = nil
+        imagePlaceView.image = nil
     }
     
     public func configure(with viewModel: NBStationCollectionViewCellViewModel) {
@@ -177,6 +186,20 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         emptySlotsImage.text = "\(viewModel.emptySlots)"
         freeBikesImage.text = "\(viewModel.freeBikes)"
         distanceLabel.text = "\(viewModel.distance) m"
-        configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
+        //configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
+        //let url = viewModel.placeImageURL
+        let url = URL(string: "https://fastly.4sqi.net/img/general/original/64437825_9Xiwwvw38XbirQO7LVIs7WVw60jlIHXDd9zXkb35AGw.jpg")
+        viewModel.fetchImage(url: url,completion: {[weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.imagePlaceView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                
+            }
+        })
     }
 }
