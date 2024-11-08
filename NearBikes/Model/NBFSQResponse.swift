@@ -76,12 +76,12 @@ struct NBFSQCoordinate: Codable {
 }
 
 struct NBFSQLocation: Codable {
-    let address: String
+    let address: String?
     let country: String
     let crossStreet: String
     let formattedAddress: String
     let locality: String
-    let postcode: String
+    let postcode: String?
     let region: String
 
     enum CodingKeys: String, CodingKey {

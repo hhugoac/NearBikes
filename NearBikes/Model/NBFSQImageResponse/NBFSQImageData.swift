@@ -9,7 +9,7 @@ import Foundation
 
 struct NBFSQImageData: Codable {
     let id: String
-    let createdAt: Date
+    let createdAt: String
     let prefix: String
     let suffix: String
     let width: Int

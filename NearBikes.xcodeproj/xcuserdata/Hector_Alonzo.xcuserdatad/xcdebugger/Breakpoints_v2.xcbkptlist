@@ -62,8 +62,8 @@
             filePath = "NearBikes/ViewModel/NBStationCollectionViewCellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "fetchImage(url:completion:)"
             landmarkType = "7">
          </BreakpointContent>

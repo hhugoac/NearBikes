@@ -187,8 +187,8 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         freeBikesImage.text = "\(viewModel.freeBikes)"
         distanceLabel.text = "\(viewModel.distance) m"
         //configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
-        //let url = viewModel.placeImageURL
-        let url = URL(string: "https://fastly.4sqi.net/img/general/original/64437825_9Xiwwvw38XbirQO7LVIs7WVw60jlIHXDd9zXkb35AGw.jpg")
+        let url = viewModel.placeImageURL
+        //let url = URL(string: "https://fastly.4sqi.net/img/general/original/64437825_9Xiwwvw38XbirQO7LVIs7WVw60jlIHXDd9zXkb35AGw.jpg")
         viewModel.fetchImage(url: url,completion: {[weak self] result in
             switch result {
             case .success(let data):

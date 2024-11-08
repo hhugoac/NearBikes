@@ -18,7 +18,6 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
     public let distance: Int
     public var placeImageURL: URL?
     
-    
     static func == (lhs: NBStationCollectionViewCellViewModel, rhs: NBStationCollectionViewCellViewModel) -> Bool {
             return lhs.hashValue == rhs.hashValue
     }
@@ -53,6 +52,42 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
             queryParameter: [URLQueryItem(name: "ll", value: location),
                              URLQueryItem(name: "limit", value: "4")]
         )
+        
+        
+        NBFSQHttpClient.shared.execute(request, expecting: NBFSQResponse.self) { [weak self] result in
+            switch result {
+            case .success(let response):
+                let fsqID = response.results.first?.fsqID ?? ""
+                
+                let request2 = NBFSQRequest(
+                    endpoint: .places,
+                    pathComponents: [fsqID, "photos"],
+                    queryParameter: [URLQueryItem(name: "limit", value: "4")]
+                )
+                
+                NBFSQHttpClient.shared.execute(request2, expecting: [NBFSQImageData].self) { [weak self] result in
+                    switch result {
+                    case .success(let response):
+                        /// build photo url
+                        guard let firstPhotoInfo = response.first else { return }
+                        self?.placeImageURL = URL(string: firstPhotoInfo.prefix + "original" + firstPhotoInfo.suffix)
+                    case .failure(let error):
+                        print("🐞 \(String(describing: error))")
+                    }
+                }
+            case .failure:
+                print("No photos")
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.wait(timeout: .now() + 2)
+        dispatchGroup.notify(queue: .main) {
+            if let placeImageURL = self.placeImageURL {
+                print("🚩🚩🚩 \(placeImageURL.absoluteString)")
+            } else {
+                print("🚩🚩🚩 no values")
+            }
+        }
     }
     
     func fetchImage(url: URL?,completion: @escaping (Result<Data, Error>)-> Void) {
