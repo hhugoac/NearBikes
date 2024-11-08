@@ -57,6 +57,7 @@ final class NBListStationsViewModel: NSObject {
 
 extension NBListStationsViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return stations.count
     }

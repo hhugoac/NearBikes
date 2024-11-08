@@ -80,7 +80,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
             }
             dispatchGroup.leave()
         }
-        dispatchGroup.wait(timeout: .now() + 2)
+        dispatchGroup.wait(timeout: .now() + 0.01)
         dispatchGroup.notify(queue: .main) {
             if let placeImageURL = self.placeImageURL {
                 print("🚩🚩🚩 \(placeImageURL.absoluteString)")
