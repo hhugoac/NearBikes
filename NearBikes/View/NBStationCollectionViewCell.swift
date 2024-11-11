@@ -12,41 +12,23 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "NBStationCollectionViewCell"
     
-    //private let mapContainer: UIView = {
-    //    let container = UIView(frame: .zero)
-    //    container.translatesAutoresizingMaskIntoConstraints = false
-    //    return container
-    //}()
-    
-    //private let mapView: MKMapView = {
-    //    let mapView = MKMapView()
-    //    mapView.translatesAutoresizingMaskIntoConstraints = false
-    //    return mapView
-    //}()
-    
-    //private let imagePlaceView: UIImageView = {
-    //    let imageView = UIImageView()
-    //    imageView.contentMode = .scaleAspectFill
-    //    imageView.clipsToBounds = true
-    //    imageView.translatesAutoresizingMaskIntoConstraints = false
-    //    return imageView
-    //}()
-    
-    private let infoStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.backgroundColor = .systemBackground
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
+
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private let bikeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "wind.snow")?.withTintColor(UIColor.red)
+      
+        
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     private let freeBikesLabel: UILabel = {
@@ -58,12 +40,21 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let freeBikesImage: UILabel = {
+    private let freeBikesValueLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private let slotImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "wind.snow")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     private let emptySlotsLabel: UILabel = {
@@ -75,7 +66,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let emptySlotsImage: UILabel = {
+    private let emptySlotsValueLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textColor = .label
@@ -96,17 +87,16 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //contentView.addSubview(mapContainer)
-        contentView.addSubview(infoStackView)
         
-        infoStackView.addSubview(nameLabel)
-        infoStackView.addSubview(freeBikesLabel)
-        infoStackView.addSubview(emptySlotsLabel)
-        infoStackView.addSubview(freeBikesImage)
-        infoStackView.addSubview(emptySlotsImage)
-        infoStackView.addSubview(distanceLabel)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(bikeImageView)
+        contentView.addSubview(freeBikesLabel)
+         contentView.addSubview(freeBikesValueLabel)
+         contentView.addSubview(slotImageView)
+         contentView.addSubview(emptySlotsLabel)
+         contentView.addSubview(emptySlotsValueLabel)
+         contentView.addSubview(distanceLabel)
         
-        //mapContainer.addSubview(imagePlaceView)
         addConstraints()
         setupLayer()
     }
@@ -116,40 +106,28 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     }
     
     private func addConstraints() {
+        let padding: CGFloat = 16
         NSLayoutConstraint.activate([
-            //mapContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
-            //mapContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            //mapContainer.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            //mapContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            infoStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            infoStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            infoStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            infoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            //infoStackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+            bikeImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            bikeImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding),
             
-            //imagePlaceView.topAnchor.constraint(equalTo: mapContainer.topAnchor),
-            //imagePlaceView.leftAnchor.constraint(equalTo: mapContainer.leftAnchor),
-            //imagePlaceView.rightAnchor.constraint(equalTo: mapContainer.rightAnchor),
-            //imagePlaceView.bottomAnchor.constraint(equalTo: mapContainer.bottomAnchor),
-            
-            nameLabel.topAnchor.constraint(equalTo: infoStackView.topAnchor, constant: 4),
-            nameLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
-            
-            freeBikesLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
-            freeBikesLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
+            freeBikesLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            freeBikesLabel.leftAnchor.constraint(equalTo: bikeImageView.leftAnchor, constant: padding),
            
-            freeBikesImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16),
-            freeBikesImage.leftAnchor.constraint(equalTo: freeBikesLabel.rightAnchor, constant: 4),
+            freeBikesValueLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            freeBikesValueLabel.leftAnchor.constraint(equalTo: freeBikesLabel.rightAnchor, constant: padding),
             
-            emptySlotsLabel.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: 4),
-            emptySlotsLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
+            emptySlotsLabel.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: padding),
+            emptySlotsLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding),
             
-            emptySlotsImage.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: 4),
-            emptySlotsImage.leftAnchor.constraint(equalTo: emptySlotsLabel.rightAnchor, constant: 4),
+            emptySlotsValueLabel.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: padding),
+            emptySlotsValueLabel.leftAnchor.constraint(equalTo: emptySlotsLabel.rightAnchor, constant: padding),
             
-            distanceLabel.centerYAnchor.constraint(equalTo: infoStackView.centerYAnchor),
-            distanceLabel.rightAnchor.constraint(equalTo: infoStackView.rightAnchor, constant: -4),
+            distanceLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            distanceLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -padding),
         ])
     }
     
@@ -159,47 +137,19 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOffset = CGSize(width: -4, height: 4)
         contentView.layer.shadowOpacity = 0.3
     }
-    
-    /*private func configureMap(longitude: Double, latitude: Double) {
-        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-        //mapView.setRegion(region, animated: false)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        self.annotation.append(annotation)
-        //mapView.addAnnotation(annotation)
-    }*/
 
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
-        //mapView.removeAnnotations(self.annotation)
-        emptySlotsImage.text = nil
-        freeBikesImage.text = nil
+        emptySlotsValueLabel.text = nil
+        freeBikesValueLabel.text = nil
         distanceLabel.text = nil
-        //imagePlaceView.image = nil
     }
     
     public func configure(with viewModel: NBStationCollectionViewCellViewModel) {
         nameLabel.text = viewModel.stationName
-        emptySlotsImage.text = "\(viewModel.emptySlots)"
-        freeBikesImage.text = "\(viewModel.freeBikes)"
-        distanceLabel.text = "\(viewModel.distance) m"
-        //configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
-        /*let url = viewModel.placeImageURL
-        //let url = URL(string: "https://fastly.4sqi.net/img/general/original/64437825_9Xiwwvw38XbirQO7LVIs7WVw60jlIHXDd9zXkb35AGw.jpg")
-        viewModel.fetchImage(url: url,completion: {[weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    self?.imagePlaceView.image = image
-                }
-            case .failure(let error):
-                print(String(describing: error))
-                
-            }
-        })*/
+        emptySlotsLabel.text = "\(viewModel.emptySlots)"
+        freeBikesValueLabel.text = "\(viewModel.freeBikes)"
+        distanceLabel.text = "Distance from me: \(viewModel.distance) m"
     }
 }
