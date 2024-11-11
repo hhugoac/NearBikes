@@ -16,7 +16,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
     public let freeBikes: Int
     public let emptySlots: Int
     public let distance: Int
-    public var placeImageURL: URL?
+    //public var placeImageURL: URL?
     
     static func == (lhs: NBStationCollectionViewCellViewModel, rhs: NBStationCollectionViewCellViewModel) -> Bool {
             return lhs.hashValue == rhs.hashValue
@@ -39,10 +39,10 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
         self.emptySlots = emptySlots
         let location = MKMapPoint(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         self.distance = Int(myLocation.distance(to: location).rounded())
-        getUrlImage()
+        //getUrlImage()
     }
     
-    private func getUrlImage() {
+    /*private func getUrlImage() {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         let location = "\(self.latitude),\(self.longitude)"
@@ -88,7 +88,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
                 print("🚩🚩🚩 no values")
             }
         }
-    }
+    }*/
     
     func fetchImage(url: URL?,completion: @escaping (Result<Data, Error>)-> Void) {
         guard let url = url else {

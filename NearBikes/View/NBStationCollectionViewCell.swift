@@ -12,11 +12,11 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "NBStationCollectionViewCell"
     
-    private let mapContainer: UIView = {
-        let container = UIView(frame: .zero)
-        container.translatesAutoresizingMaskIntoConstraints = false
-        return container
-    }()
+    //private let mapContainer: UIView = {
+    //    let container = UIView(frame: .zero)
+    //    container.translatesAutoresizingMaskIntoConstraints = false
+    //    return container
+    //}()
     
     //private let mapView: MKMapView = {
     //    let mapView = MKMapView()
@@ -24,13 +24,13 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     //    return mapView
     //}()
     
-    private let imagePlaceView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    //private let imagePlaceView: UIImageView = {
+    //    let imageView = UIImageView()
+    //    imageView.contentMode = .scaleAspectFill
+    //    imageView.clipsToBounds = true
+    //    imageView.translatesAutoresizingMaskIntoConstraints = false
+    //    return imageView
+    //}()
     
     private let infoStackView: UIStackView = {
         let stackView = UIStackView()
@@ -96,7 +96,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(mapContainer)
+        //contentView.addSubview(mapContainer)
         contentView.addSubview(infoStackView)
         
         infoStackView.addSubview(nameLabel)
@@ -106,7 +106,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         infoStackView.addSubview(emptySlotsImage)
         infoStackView.addSubview(distanceLabel)
         
-        mapContainer.addSubview(imagePlaceView)
+        //mapContainer.addSubview(imagePlaceView)
         addConstraints()
         setupLayer()
     }
@@ -117,21 +117,21 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            mapContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
-            mapContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            mapContainer.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            mapContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+            //mapContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
+            //mapContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            //mapContainer.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            //mapContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
             
-            infoStackView.topAnchor.constraint(equalTo: mapContainer.bottomAnchor),
+            infoStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             infoStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             infoStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             infoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            infoStackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
+            //infoStackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5),
             
-            imagePlaceView.topAnchor.constraint(equalTo: mapContainer.topAnchor),
-            imagePlaceView.leftAnchor.constraint(equalTo: mapContainer.leftAnchor),
-            imagePlaceView.rightAnchor.constraint(equalTo: mapContainer.rightAnchor),
-            imagePlaceView.bottomAnchor.constraint(equalTo: mapContainer.bottomAnchor),
+            //imagePlaceView.topAnchor.constraint(equalTo: mapContainer.topAnchor),
+            //imagePlaceView.leftAnchor.constraint(equalTo: mapContainer.leftAnchor),
+            //imagePlaceView.rightAnchor.constraint(equalTo: mapContainer.rightAnchor),
+            //imagePlaceView.bottomAnchor.constraint(equalTo: mapContainer.bottomAnchor),
             
             nameLabel.topAnchor.constraint(equalTo: infoStackView.topAnchor, constant: 4),
             nameLabel.leftAnchor.constraint(equalTo: infoStackView.leftAnchor, constant: 4),
@@ -160,7 +160,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOpacity = 0.3
     }
     
-    private func configureMap(longitude: Double, latitude: Double) {
+    /*private func configureMap(longitude: Double, latitude: Double) {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         //mapView.setRegion(region, animated: false)
@@ -169,7 +169,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         annotation.coordinate = coordinate
         self.annotation.append(annotation)
         //mapView.addAnnotation(annotation)
-    }
+    }*/
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -178,7 +178,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         emptySlotsImage.text = nil
         freeBikesImage.text = nil
         distanceLabel.text = nil
-        imagePlaceView.image = nil
+        //imagePlaceView.image = nil
     }
     
     public func configure(with viewModel: NBStationCollectionViewCellViewModel) {
@@ -187,7 +187,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         freeBikesImage.text = "\(viewModel.freeBikes)"
         distanceLabel.text = "\(viewModel.distance) m"
         //configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
-        let url = viewModel.placeImageURL
+        /*let url = viewModel.placeImageURL
         //let url = URL(string: "https://fastly.4sqi.net/img/general/original/64437825_9Xiwwvw38XbirQO7LVIs7WVw60jlIHXDd9zXkb35AGw.jpg")
         viewModel.fetchImage(url: url,completion: {[weak self] result in
             switch result {
@@ -200,6 +200,6 @@ class NBStationCollectionViewCell: UICollectionViewCell {
                 print(String(describing: error))
                 
             }
-        })
+        })*/
     }
 }
