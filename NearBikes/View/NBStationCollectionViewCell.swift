@@ -23,7 +23,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     private let bikeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "wind.snow")?.withTintColor(UIColor.red)
+        imageView.image = UIImage(systemName: "bicycle")?.withTintColor(UIColor.red)
       
         
         imageView.clipsToBounds = true
@@ -50,7 +50,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     private let slotImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "wind.snow")
+        imageView.image = UIImage(systemName: "bicycle.circle.fill")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -82,12 +82,23 @@ class NBStationCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    
+    private let annotationImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "location")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    
     var annotation :[MKPointAnnotation] = []
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        contentView.backgroundColor = .systemBackground
         contentView.addSubview(nameLabel)
         contentView.addSubview(bikeImageView)
         contentView.addSubview(freeBikesLabel)
@@ -96,7 +107,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
          contentView.addSubview(emptySlotsLabel)
          contentView.addSubview(emptySlotsValueLabel)
          contentView.addSubview(distanceLabel)
-        
+        contentView.addSubview(annotationImageView)
         addConstraints()
         setupLayer()
     }
@@ -115,18 +126,24 @@ class NBStationCollectionViewCell: UICollectionViewCell {
             bikeImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding),
             
             freeBikesLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            freeBikesLabel.leftAnchor.constraint(equalTo: bikeImageView.leftAnchor, constant: padding),
+            freeBikesLabel.leftAnchor.constraint(equalTo: bikeImageView.rightAnchor, constant: padding / 2),
            
             freeBikesValueLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             freeBikesValueLabel.leftAnchor.constraint(equalTo: freeBikesLabel.rightAnchor, constant: padding),
             
+            slotImageView.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: padding),
+            slotImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding),
+            
             emptySlotsLabel.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: padding),
-            emptySlotsLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding),
+            emptySlotsLabel.leftAnchor.constraint(equalTo: slotImageView.rightAnchor, constant: padding / 2),
             
             emptySlotsValueLabel.topAnchor.constraint(equalTo: freeBikesLabel.bottomAnchor, constant: padding),
             emptySlotsValueLabel.leftAnchor.constraint(equalTo: emptySlotsLabel.rightAnchor, constant: padding),
             
-            distanceLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            annotationImageView.topAnchor.constraint(equalTo: emptySlotsValueLabel.bottomAnchor, constant: padding),
+            annotationImageView.rightAnchor.constraint(equalTo: distanceLabel.leftAnchor, constant: -padding / 2),
+            
+            distanceLabel.topAnchor.constraint(equalTo: emptySlotsValueLabel.bottomAnchor, constant: padding),
             distanceLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -padding),
         ])
     }
@@ -148,7 +165,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
     
     public func configure(with viewModel: NBStationCollectionViewCellViewModel) {
         nameLabel.text = viewModel.stationName
-        emptySlotsLabel.text = "\(viewModel.emptySlots)"
+        emptySlotsValueLabel.text = "\(viewModel.emptySlots)"
         freeBikesValueLabel.text = "\(viewModel.freeBikes)"
         distanceLabel.text = "Distance from me: \(viewModel.distance) m"
     }
