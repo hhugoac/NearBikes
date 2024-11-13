@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol NBListStationsUIViewDelegate: AnyObject {
+    func nbNBDidSelectedStation(
+        _ station: NBStation
+    )
+}
 class NBListStationsUIView: UIView, NBListStationsViewModelProtocol {
     
+    public weak var delegate: NBListStationsUIViewDelegate?
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -54,6 +60,10 @@ class NBListStationsUIView: UIView, NBListStationsViewModelProtocol {
     
     func loadStations() {
         collectionView.reloadData()
+    }
+    
+    func didSelectedStation(_ station: NBStation) {
+        delegate?.nbNBDidSelectedStation(station)
     }
 }
 

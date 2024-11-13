@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NBListStationsViewController: UIViewController {
+class NBListStationsViewController: UIViewController, NBListStationsUIViewDelegate {
     
     let listStatitionsView = NBListStationsUIView()
     
@@ -16,9 +16,10 @@ class NBListStationsViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.title = "Near Stations:"
         view.addSubview(listStatitionsView)
+        listStatitionsView.delegate = self
         addConstraints()
     }
-
+    
     private func addConstraints()  {
         NSLayoutConstraint.activate([
             listStatitionsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -27,4 +28,13 @@ class NBListStationsViewController: UIViewController {
             listStatitionsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    func nbNBDidSelectedStation(_ station: NBStation) {
+        // 📝 TODO:  Navigate to details view
+        let vc = NBSettingsViewController()
+        vc.title = station.name
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
