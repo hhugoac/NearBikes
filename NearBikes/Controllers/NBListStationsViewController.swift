@@ -14,6 +14,7 @@ class NBListStationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        self.title = "Near Stations:"
         view.addSubview(listStatitionsView)
         addConstraints()
     }
