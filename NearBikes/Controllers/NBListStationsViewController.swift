@@ -30,8 +30,7 @@ class NBListStationsViewController: UIViewController, NBListStationsUIViewDelega
     }
     
     func nbNBDidSelectedStation(_ station: NBStation) {
-        // 📝 TODO:  Navigate to details view
-        let vc = NBSettingsViewController()
+        let vc = NBStationViewController()
         vc.title = station.name
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)

@@ -29,6 +29,8 @@
 		917713022CDED7710068E590 /* NBWeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917713012CDED7710068E590 /* NBWeatherCollectionViewCell.swift */; };
 		917B13582CD3DD7D00F90FA9 /* NBNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917B13572CD3DD7D00F90FA9 /* NBNetwork.swift */; };
 		918A75D82CDC14EF00D0E133 /* NBFSQResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A75D72CDC14EF00D0E133 /* NBFSQResponse.swift */; };
+		9194D7CF2CE69E5500551D0A /* NBStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194D7CE2CE69E5500551D0A /* NBStationViewController.swift */; };
+		9194D7D12CE69FCE00551D0A /* NBStationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9194D7D02CE69FCE00551D0A /* NBStationDetail.swift */; };
 		91A09A4C2CDAB5980065DE6C /* NBFSQHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A09A4B2CDAB5980065DE6C /* NBFSQHttpClient.swift */; };
 		91A09A4E2CDAB60E0065DE6C /* NBFSQRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A09A4D2CDAB60E0065DE6C /* NBFSQRequest.swift */; };
 		BF8A697F2CD3477200D45FA9 /* NBListStationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A697E2CD3477200D45FA9 /* NBListStationsViewModel.swift */; };
@@ -60,6 +62,8 @@
 		917713012CDED7710068E590 /* NBWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		917B13572CD3DD7D00F90FA9 /* NBNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBNetwork.swift; sourceTree = "<group>"; };
 		918A75D72CDC14EF00D0E133 /* NBFSQResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBFSQResponse.swift; sourceTree = "<group>"; };
+		9194D7CE2CE69E5500551D0A /* NBStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBStationViewController.swift; sourceTree = "<group>"; };
+		9194D7D02CE69FCE00551D0A /* NBStationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBStationDetail.swift; sourceTree = "<group>"; };
 		91A09A4B2CDAB5980065DE6C /* NBFSQHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBFSQHttpClient.swift; sourceTree = "<group>"; };
 		91A09A4D2CDAB60E0065DE6C /* NBFSQRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBFSQRequest.swift; sourceTree = "<group>"; };
 		BF8A697E2CD3477200D45FA9 /* NBListStationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBListStationsViewModel.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				912C9DCB2CD2EE5B0004C6DC /* NBListStationsViewController.swift */,
 				912C9DCD2CD2EF710004C6DC /* NBTabViewController.swift */,
 				912C9DCF2CD2F0070004C6DC /* NBSettingsViewController.swift */,
+				9194D7CE2CE69E5500551D0A /* NBStationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				BF8A69822CD347F700D45FA9 /* NBListStationsUIView.swift */,
 				9173E3CE2CD3F54D00824F86 /* NBStationCollectionViewCell.swift */,
 				917713012CDED7710068E590 /* NBWeatherCollectionViewCell.swift */,
+				9194D7D02CE69FCE00551D0A /* NBStationDetail.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 				917712FE2CDE8E230068E590 /* NBFSQImageData.swift in Sources */,
 				912C9DDC2CD2F66F0004C6DC /* NBLocation.swift in Sources */,
 				BF8A697F2CD3477200D45FA9 /* NBListStationsViewModel.swift in Sources */,
+				9194D7CF2CE69E5500551D0A /* NBStationViewController.swift in Sources */,
 				912C9DD02CD2F0070004C6DC /* NBSettingsViewController.swift in Sources */,
 				BF8A69832CD347F700D45FA9 /* NBListStationsUIView.swift in Sources */,
 				912C9DD42CD2F1850004C6DC /* NBRequest.swift in Sources */,
@@ -304,6 +311,7 @@
 				91A09A4E2CDAB60E0065DE6C /* NBFSQRequest.swift in Sources */,
 				912C9DC32CD2E8170004C6DC /* SceneDelegate.swift in Sources */,
 				912C9DC42CD2E8170004C6DC /* ViewController.swift in Sources */,
+				9194D7D12CE69FCE00551D0A /* NBStationDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
