@@ -15,7 +15,7 @@ class NBStationCollectionViewCell: UICollectionViewCell {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         label.textColor = UIColor(red: 39/255, green: 105/255, blue: 71/255, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -9,10 +9,11 @@ import UIKit
 
 protocol NBListStationsUIViewDelegate: AnyObject {
     func nbNBDidSelectedStation(
-        _ station: NBStation
+        _ viewModel: NBStationCollectionViewCellViewModel
     )
 }
 class NBListStationsUIView: UIView, NBListStationsViewModelProtocol {
+    
     
     public weak var delegate: NBListStationsUIViewDelegate?
     
@@ -62,8 +63,10 @@ class NBListStationsUIView: UIView, NBListStationsViewModelProtocol {
         collectionView.reloadData()
     }
     
-    func didSelectedStation(_ station: NBStation) {
-        delegate?.nbNBDidSelectedStation(station)
+    
+    func didSelectedStation(_ viewModel: NBStationCollectionViewCellViewModel) {
+        delegate?.nbNBDidSelectedStation(viewModel)
     }
+    
 }
 

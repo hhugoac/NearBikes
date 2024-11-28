@@ -8,7 +8,7 @@
 import UIKit
 
 class NBListStationsViewController: UIViewController, NBListStationsUIViewDelegate {
-    
+        
     let listStatitionsView = NBListStationsUIView()
     
     override func viewDidLoad() {
@@ -29,9 +29,8 @@ class NBListStationsViewController: UIViewController, NBListStationsUIViewDelega
         ])
     }
     
-    func nbNBDidSelectedStation(_ station: NBStation) {
-        let vc = NBStationViewController()
-        vc.title = station.name
+    func nbNBDidSelectedStation(_ viewModel: NBStationCollectionViewCellViewModel) {
+        let vc = NBStationViewController(viewModel: viewModel)
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }

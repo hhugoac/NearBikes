@@ -10,7 +10,7 @@ import MapKit
 
 protocol NBListStationsViewModelProtocol: AnyObject {
     func loadStations()
-    func didSelectedStation(_ station: NBStation)
+    func didSelectedStation(_ viewModel: NBStationCollectionViewCellViewModel)
 }
 
 final class NBListStationsViewModel: NSObject {
@@ -84,6 +84,7 @@ extension NBListStationsViewModel: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let station = stations[indexPath.row]
-        delegate?.didSelectedStation(station)
+        let vm = cellViewModels[indexPath.row]
+        delegate?.didSelectedStation(vm)
     }
 }

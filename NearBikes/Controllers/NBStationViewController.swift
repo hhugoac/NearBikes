@@ -9,8 +9,20 @@ import UIKit
 
 class NBStationViewController: UIViewController {
 
-    let stationView = NBStationDetail()
+    let viewModel: NBStationCollectionViewCellViewModel
+    let stationView: NBStationDetail
     
+    
+    // MARK: - Init
+    init(viewModel: NBStationCollectionViewCellViewModel) {
+        self.viewModel = viewModel
+        self.stationView = NBStationDetail(frame: .zero, viewModel: viewModel)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Unsupported")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground

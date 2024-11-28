@@ -10,6 +10,8 @@ import MapKit
 
 class NBStationDetail: UIView {
     
+    private let viewModel: NBStationCollectionViewCellViewModel
+    
     private let mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,12 +20,13 @@ class NBStationDetail: UIView {
     }()
     
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: NBStationCollectionViewCellViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(mapView)
         addConstraints()
-        configureMap(longitude: -103.359311, latitude: 20.680551)
+        //configureMap(longitude: -103.359311, latitude: 20.680551)
     }
 
     required init?(coder: NSCoder) {
@@ -52,8 +55,7 @@ class NBStationDetail: UIView {
         }
 
     public func configure(with viewModel: NBStationCollectionViewCellViewModel) {
-            //configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
-            
-        }
+            configureMap(longitude: viewModel.longitude, latitude: viewModel.latitude)
+    }
     
 }
