@@ -19,6 +19,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
     public let distanceMessage: String
     public var colorBike: UIColor = UIColor()
     public var colorSlot: UIColor = UIColor()
+    public var initialLocation: MKMapPoint
     //public var placeImageURL: URL?
     
     static func == (lhs: NBStationCollectionViewCellViewModel, rhs: NBStationCollectionViewCellViewModel) -> Bool {
@@ -43,6 +44,7 @@ final class NBStationCollectionViewCellViewModel: Hashable, Equatable {
         let location = MKMapPoint(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         self.distance = Int(myLocation.distance(to: location).rounded())
         self.distanceMessage = "Within \(self.distance) m"
+        self.initialLocation = myLocation
         self.colorBike = self.calculateColor(with:freeBikes)
         self.colorSlot = self.calculateColor(with: emptySlots)
         //getUrlImage()

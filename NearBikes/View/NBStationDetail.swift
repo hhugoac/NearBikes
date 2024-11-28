@@ -26,7 +26,7 @@ class NBStationDetail: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(mapView)
         addConstraints()
-        //configureMap(longitude: -103.359311, latitude: 20.680551)
+        configureMap(longitude:viewModel.longitude, latitude: viewModel.latitude)
     }
 
     required init?(coder: NSCoder) {
@@ -45,6 +45,7 @@ class NBStationDetail: UIView {
     }
     
     private func configureMap(longitude: Double, latitude: Double) {
+        // 📝 TODO:  create the route between the 2 points into the map
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
             mapView.setRegion(region, animated: false)
